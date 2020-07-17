@@ -1,0 +1,51 @@
+<div class="alert-container">
+    <div class="alert-form" *ngIf="!this.isSubmitted || (this.isSubmitted && !this.isSuccessful)">
+        <form [formGroup]="addEditForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="legacy">
+                <mat-label>X</mat-label>
+                <input matInput readonly name="x" formControlName="x" value="{{ x }}" disabled>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="legacy">
+                <mat-label>Y</mat-label>
+                <input matInput readonly name="y" formControlName="y" value="{{ y }}" disabled>
+            </mat-form-field>
+            <br>
+            <mat-form-field appearance="legacy">
+                <mat-label>Type</mat-label>
+                <input matInput readonly name="type" formControlName="type">
+            </mat-form-field>
+            <br>
+            <mat-form-field *ngIf="this.type === 'camera'" appearance="legacy">
+                <mat-label>Speed</mat-label>
+                <input matInput name="speed" formControlName="speed">
+                <br>
+            </mat-form-field>
+            <mat-form-field *ngIf="this.type === 'toll'" appearance="legacy">
+                <mat-label>Price</mat-label>
+                <input matInput name="price" formControlName="price">
+                <br>
+            </mat-form-field>
+            <mat-form-field *ngIf="this.type === 'accident'" appearance="legacy">
+                <mat-label>Info</mat-label>
+                <input matInput name="info" formControlName="info">
+                <br>
+            </mat-form-field>
+            <mat-form-field *ngIf="this.type === 'jam'" appearance="legacy">
+                <mat-label>Expected Delay</mat-label>
+                <input matInput name="expected_delay" formControlName="expected_delay">
+                <br>
+            </mat-form-field>
+            <mat-error *ngIf="this.isSubmitted && !this.isSuccessful">
+                {{ this.errorMsg }}
+            </mat-error>
+            <br>
+            <button type="submit" color="primary" mat-button>{{ this.buttonMsg }}</button>
+        </form>
+    </div>
+    <div class="alert-info" *ngIf="this.isSuccessful && this.isSubmitted">
+        <h2>Alert has been added successfully!</h2>
+        <p>You can now view it on the map</p>
+        <button type="button" mat-button color="primary" routerLink="/map">Proceed to Map</button>
+    </div>
+</div>

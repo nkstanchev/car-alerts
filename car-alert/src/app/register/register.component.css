@@ -1,0 +1,15 @@
+.register-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url("/assets/register_bg.jpg");
+}
+.register-form, .register-info {
+    background-color: #fff;
+    padding: 1rem;
+    margin: 1rem;
+}
+.mat-error-wrap, .mat-error {
+    width: 100%;
+}

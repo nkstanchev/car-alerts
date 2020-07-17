@@ -1,0 +1,10 @@
+<mat-toolbar>
+    <span>Car Alerts</span>
+    <div class="spacer"></div>
+    <a [routerLink]="['/map']" mat-button>Map</a>
+    <a [routerLink]="['/about']" mat-button>About</a>
+    <a *ngIf="this.AuthService.isLoggedIn() && this.AuthService.hasPrivilege([this.adminRole])" [routerLink]="['/admin/users']" mat-button>Admin</a>
+    <a *ngIf="this.AuthService.isLoggedOut()" [routerLink]="['/login']" mat-button>Login</a>
+    <a *ngIf="this.AuthService.isLoggedOut()" [routerLink]="['/register']" mat-button>Register</a>
+    <a *ngIf="this.AuthService.isLoggedIn()" (click)="this.logout()" mat-button>Log out</a>
+</mat-toolbar>

@@ -1,0 +1,22 @@
+<div class="user-container">
+    <div class="user-form">
+        <p>Id: {{ this.user._id }}</p>
+        <p>Username: {{ this.user.username }}</p>
+        <p>Email: {{ this.user.email }}</p>
+        <form [formGroup]="editUserForm" (ngSubmit)="onSubmit()">
+            <select formControlName="role">
+                <option *ngFor="let role of this.AuthService.getValidRoles()" value="{{ role }}">{{ role | titlecase }}</option>
+            </select>
+            <br>
+            <mat-error *ngIf="!this.isSuccessful">
+                {{ this.errorMsg }}
+            </mat-error>
+            <br>
+            <p *ngIf="this.isSuccessful">
+                User successfully updated!
+                <br>
+            </p>
+            <button type="submit" color="primary" mat-button [disabled]="!editUserForm.valid">Update</button>
+        </form>
+    </div>
+</div>

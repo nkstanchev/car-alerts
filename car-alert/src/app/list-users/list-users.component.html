@@ -1,0 +1,12 @@
+<div class="list-users-container">
+    <h2>Manage users</h2>
+    <div>
+    <ul>
+        <li *ngFor="let user of this.users">
+            {{ user.username }}
+            <a class="action-icon" routerLink="/admin/user/edit/{{ user._id }}">Edit</a>
+            <mat-icon class="action-icon" [routerLink]="" (click)="deleteUser(user)">delete</mat-icon>
+        </li>
+    </ul>
+    </div>
+</div>

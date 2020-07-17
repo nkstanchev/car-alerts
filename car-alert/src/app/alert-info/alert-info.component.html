@@ -1,0 +1,17 @@
+
+<h3>{{ this.header }} </h3>
+<p *ngIf="this.alert.type === 'camera'">
+    Speed: {{ this.alert.speed }}
+</p>
+<p *ngIf="this.alert.type === 'toll'">
+    Price: {{ this.alert.price }}
+</p>
+<p *ngIf="this.alert.type === 'accident'">
+    Info: {{ this.alert.info }}
+</p>
+<p *ngIf="this.alert.type === 'jam'">
+    Expected delay: {{ this.alert.expected_delay }}
+</p>
+<p class="coordinates">{{this.xyStr}}</p>
+<button *ngIf="this.AuthService.isLoggedIn() && ( this.AuthService.currentUserId == this.alert.user_id || this.AuthService.hasPrivilege([this.adminRole]))" mat-input routerLink="/alert/edit/{{ alert._id }}">Edit</button>
+<button *ngIf="this.AuthService.isLoggedIn() && ( this.AuthService.currentUserId == this.alert.user_id || this.AuthService.hasPrivilege([this.adminRole]))" mat-input (click)="deleteAlert()">Delete</button>

@@ -1,0 +1,16 @@
+<div id="map" class="map"></div>
+<div id="popup" class="ol-popup">
+      <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+      <div id="popup-content">
+            <button mat-button [routerLink]="['/alert/add']" [state]="{ x:this.createAlertX, y:this.createAlertY, type: 'camera'}">Add camera</button><br>
+            <button mat-button [routerLink]="['/alert/add']" [state]="{ x:this.createAlertX, y:this.createAlertY, type: 'toll'}">Add toll</button><br>
+            <button mat-button [routerLink]="['/alert/add']" [state]="{ x:this.createAlertX, y:this.createAlertY, type: 'accident'}">Add accident</button><br>
+            <button mat-button [routerLink]="['/alert/add']" [state]="{ x:this.createAlertX, y:this.createAlertY, type: 'jam'}">Add traffic jam</button>
+      </div>
+</div>
+<div id="popup-view" class="ol-popup">
+      <a href="#" id="popup-closer-view" class="ol-popup-closer"></a>
+      <div id="popup-content-view">
+          <ng-template #container></ng-template>
+      </div>
+</div>
